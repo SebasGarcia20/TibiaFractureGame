@@ -7,6 +7,8 @@ public class pickup : MonoBehaviour
     // Start is called before the first frame update    
 public Transform theDest;
 public CameraLook hcameralook;
+public GameObject Water_Drop;
+public GameObject Water_hit;
 void OnMouseDown() 
 {
     //GetComponent<BoxCollider>().enabled =  false;
@@ -29,10 +31,12 @@ void OnTriggerEnter (Collider collider)
     GameObject objeto1 = GameObject.Find("cilindro1");
     if (collider.gameObject.name == "fractura") 
     {
-        
+        print("Funciona");
         GameObject.Find("Main Camera").GetComponent<CameraLook>().enabled = false;
         GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
+        Water_Drop.SetActive(true);
+        Water_hit.SetActive(true);
         
     }
 }
