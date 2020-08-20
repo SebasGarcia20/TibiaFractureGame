@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
     {
         if (tutorial != null)
         {   
+            Debug.Log("cierrayContinua");
             GameObject.Find("Player").GetComponent<PlayerMove>().enabled = true;
             GameObject.Find("Main Camera").GetComponent<CameraLook>().enabled = true;
             tutorial.SetActive(false);

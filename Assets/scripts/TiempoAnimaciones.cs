@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DespuesTiempo : MonoBehaviour
+public class TiempoAnimaciones : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject tutorial;
@@ -10,7 +10,7 @@ public class DespuesTiempo : MonoBehaviour
     public float tiempo;
     void Start()
     {Debug.Log("esperar tiempo");
-        StartCoroutine ("Esperar");
+        StartCoroutine ("EsperaTiempo");
         if(hcameralook != null){
             hcameralook = GameObject.Find("Main Camera").GetComponent<CameraLook>();
         }
@@ -19,8 +19,9 @@ public class DespuesTiempo : MonoBehaviour
     }
 
     // Update is called once per frame
-    public IEnumerator Esperar(){
-        Debug.Log("esperar entro");
+    public IEnumerator EsperaTiempo(){
+        Debug.Log("tutorial");
+        Debug.Log(tutorial);
         yield return new WaitForSeconds (tiempo);
         if(tutorial != null)
         {
@@ -28,6 +29,13 @@ public class DespuesTiempo : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
         hcameralook.enabled = false;
         tutorial.SetActive(true);
+        }
+        else
+        {
+        Debug.Log("esperar entro");
+        GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
+        hcameralook.enabled = false;
+        GameObject.Find("Canvas").SetActive(true);
         }
 
         if(hcameralook != null){

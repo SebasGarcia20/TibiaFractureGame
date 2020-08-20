@@ -39,6 +39,14 @@ public class ObjectClicker : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                 }
 
+                if (hit.transform.gameObject.name == "image_4")
+                {
+                    Debug.Log("Correcto!");
+                    // GameObject.Find("Player").GetComponent<PlayerMove>().enabled = false;
+                    // hcameralook.enabled = false;
+                    // Cursor.lockState = CursorLockMode.None;
+                }
+
             }
         }
     }
